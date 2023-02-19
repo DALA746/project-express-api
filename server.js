@@ -138,11 +138,12 @@ app.get('/shows', (req, res) => {
       success: false
     });
   }
+  res.json(arrayToSendToUser);
 
-  res.json({
-    response: arrayToSendToUser,
-    success: true
-  });
+  // res.json({
+  //   response: arrayToSendToUser,
+  //   success: true
+  // });
 });
 
 // SECOND ENDPOINT
