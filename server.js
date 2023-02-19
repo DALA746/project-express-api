@@ -27,8 +27,7 @@ app.get('/', (req, res) => {
     title: 'Welcome to DL:s shows API!',
     description: {
       endpoint1: {
-        'Returns the entire shows array':
-          'https://dls-shows-api.herokuapp.com/shows',
+        'Returns the entire shows array': '/shows',
         'Returns shows by a specific title, replace text inside <> with your text':
           '/shows?title=<title>',
         'Returns shows by a specific country, replace text inside <> with your text':
@@ -42,7 +41,7 @@ app.get('/', (req, res) => {
       },
       endpoint2: {
         'This endpoint returns shows with a specific id. Replace :id with a number of the show.':
-          'https://dls-shows-api.herokuapp.com/shows/id/:id'
+          '/shows/id/:id'
       }
     }
   });
@@ -99,7 +98,6 @@ app.get('/shows', (req, res) => {
       item.title.toLowerCase().includes(title.toLowerCase())
     );
   }
-  console.log(title);
 
   if (country) {
     arrayToSendToUser = arrayToSendToUser.filter((item) =>
