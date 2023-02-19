@@ -50,15 +50,18 @@ app.get('/', (req, res) => {
 
 app.get('/shows/search', (req, res) => {
   const { title } = req.query;
-  const authorBooks = netflixData.filter((item) =>
+  const arrayToSendToUser = netflixData.filter((item) =>
     item.title.toLocaleLowerCase().includes(title.toLocaleLowerCase)
   );
 
-  if (authorBooks.length === 0) {
-    res.status(404).json('Sorry, could not find books by that author name :(');
+  if (arrayToSendToUser.length === 0) {
+    res.status(404).json('Sorry, could not this title :(');
   }
 
-  res.json(authorBooks);
+  res.json({
+    response: arrayToSendToUser,
+    success: true
+  });
 });
 
 // NOTES ABOUT QUERY & PARAMS
