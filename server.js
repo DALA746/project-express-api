@@ -128,7 +128,10 @@ app.get('/shows', (req, res) => {
     // slice gives us what in between startIndex and endIndex
     const paginationArray = arrayToSendToUser.slice(startIndex, endIndex);
     // returs an array with pagination
-    res.json(paginationArray);
+    res.json({
+      response: paginationArray,
+      success: true
+    });
   }
 
   // ERRORS
