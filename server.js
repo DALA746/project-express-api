@@ -50,8 +50,7 @@ app.get('/', (req, res) => {
 app.get('/shows/search', (req, res) => {
   const { title } = req.query;
   const arrayToSendToUser = netflixData.filter((item) =>
-    item.title.toLocaleLowerCase().includes(title.toLocaleLowerCase)
-  );
+    item.title.toLocaleLowerCase().includes(title.toLocaleLowerCase));
 
   if (arrayToSendToUser.length === 0) {
     res.status(404).json('Sorry, could not this title :(');
@@ -95,27 +94,23 @@ app.get('/shows', (req, res) => {
     includes() is almost the same as indexOf(), indecOf return number, when includes a boolean, 
     a part of the string that we send should be in the database */
     arrayToSendToUser = arrayToSendToUser.filter((item) =>
-      item.title.toLowerCase().includes(title.toLowerCase())
-    );
+      item.title.toLowerCase().includes(title.toLowerCase()));
   }
 
   if (country) {
     arrayToSendToUser = arrayToSendToUser.filter((item) =>
-      item.country.toLowerCase().includes(country.toLowerCase())
-    );
+      item.country.toLowerCase().includes(country.toLowerCase()));
   }
 
   if (type) {
     arrayToSendToUser = arrayToSendToUser.filter((item) =>
-      item.type.toLowerCase().includes(type.toLowerCase())
-    );
+      item.type.toLowerCase().includes(type.toLowerCase()));
   }
 
   if (year) {
     // "+" turns the string in to a number.
     arrayToSendToUser = arrayToSendToUser.filter(
-      (item) => item.release_year === +year
-    );
+      (item) => item.release_year === +year);
   }
 
   // PAGINATION
