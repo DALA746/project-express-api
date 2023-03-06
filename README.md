@@ -13,5 +13,5 @@ I also created a frontend project just for the demonstration of this API. You ca
 
 ## View it live
 
-Backend: https://project-express-api-production.up.railway.app
+Backend: https://project-express-api-production.up.railway.app <br />
 Frontend demo of API: https://movietime-api.netlify.app/
